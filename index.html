@@ -64,12 +64,25 @@ border:1px solid #333;
 margin-bottom:18px;
 }
 
+/* IFRAME */
 .video-box iframe{
 width:100%;
 height:240px;
 border:none;
+pointer-events:none; /* IMPORTANTE */
 }
 
+/* OVERLAY DE CLIQUE */
+.video-overlay{
+position:absolute;
+top:0;left:0;
+width:100%;
+height:100%;
+z-index:5;
+cursor:pointer;
+}
+
+/* MENSAGEM */
 .tap-audio{
 position:absolute;
 bottom:10px;
@@ -82,6 +95,7 @@ font-size:11px;
 padding:6px 10px;
 border-radius:20px;
 animation:pulseHint 1.5s infinite;
+z-index:6;
 pointer-events:none;
 }
 
@@ -131,14 +145,6 @@ font-weight:bold;font-size:13px;
 
 <body>
 
-<div id="notify">
-<div class="icon">✓</div>
-<div>
-<strong id="nName">Lucas M.</strong><br>
-<span id="nText">liberou o acesso</span>
-</div>
-</div>
-
 <div class="container">
 
 <div class="live-counter">
@@ -156,6 +162,8 @@ font-weight:bold;font-size:13px;
 src="https://player.vimeo.com/video/1147296941?autoplay=1&muted=1&background=1&controls=0&title=0&byline=0&portrait=0&playsinline=1"
 allow="autoplay; fullscreen; picture-in-picture"
 allowfullscreen></iframe>
+
+<div class="video-overlay" id="videoOverlay"></div>
 <div class="tap-audio" id="audioHint">🔊 Toque no vídeo para ouvir</div>
 </div>
 
@@ -163,8 +171,7 @@ allowfullscreen></iframe>
 <div class="status">Verificação concluída ✔</div>
 
 <a class="cta" id="ctaBtn"
-href="https://cakto.app/6KeTY7f/?affiliate=gKdVw4o2"
-aria-label="Liberar acesso ao método agora">
+href="https://cakto.app/6KeTY7f/?affiliate=gKdVw4o2">
 LIBERAR ACESSO AGORA
 <span>Acesso imediato</span>
 </a>
@@ -184,20 +191,6 @@ LIBERAR ACESSO AGORA
 </div>
 
 <script>
-// NOTIFICAÇÕES
-const names=["Pedro S.","Lucas M.","Rafael K.","Bruno L.","Carlos E.","André S."];
-const actions=["liberou o acesso","está assistindo","acabou de entrar"];
-
-function notify(){
-const box=document.getElementById("notify");
-document.getElementById("nName").innerText=names[Math.floor(Math.random()*names.length)];
-document.getElementById("nText").innerText=actions[Math.floor(Math.random()*actions.length)];
-box.style.right="20px";
-setTimeout(()=>box.style.right="-320px",4000);
-}
-setTimeout(notify,2000);
-setInterval(notify,9000);
-
 // CONTADOR
 setInterval(()=>{
 let v=document.getElementById("viewers");
@@ -206,22 +199,17 @@ if(n<98)n=98;
 v.innerText=n;
 },3000);
 
-// DESBLOQUEIO DE ÁUDIO + REMOÇÃO DA MENSAGEM
+// AUDIO + OVERLAY
 const iframe=document.getElementById("vimeoPlayer");
 const hint=document.getElementById("audioHint");
-let audioUnlocked=false;
+const overlay=document.getElementById("videoOverlay");
 
-function unlockAudio(){
-if(audioUnlocked) return;
+overlay.addEventListener("click",()=>{
 iframe.src=iframe.src.replace("muted=1","muted=0");
 hint.style.display="none";
-audioUnlocked=true;
-document.removeEventListener("click",unlockAudio);
-document.removeEventListener("touchstart",unlockAudio);
-}
-
-document.addEventListener("click",unlockAudio);
-document.addEventListener("touchstart",unlockAudio);
+overlay.remove();
+iframe.style.pointerEvents="auto";
+});
 
 // CTA FEEDBACK
 const cta=document.getElementById("ctaBtn");
