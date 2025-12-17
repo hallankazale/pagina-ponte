@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Acesso VIP</title>
 
+<meta name="description" content="Descubra como influenciadores virtuais estão lucrando com IA sem aparecer.">
+<meta property="og:title" content="O Segredo do Mercado de IA">
+<meta property="og:description" content="Influenciadores virtuais estão lucrando com IA sem aparecer.">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 
@@ -19,11 +23,7 @@ align-items:center;
 padding:10px;
 }
 
-.container{
-max-width:420px;
-width:100%;
-text-align:center;
-}
+.container{max-width:420px;width:100%;text-align:center}
 
 .live-counter{
 background:rgba(255,0,0,.15);
@@ -39,10 +39,8 @@ margin-bottom:16px;
 }
 
 .dot{
-width:8px;
-height:8px;
-background:red;
-border-radius:50%;
+width:8px;height:8px;
+background:red;border-radius:50%;
 animation:blink 1s infinite;
 }
 
@@ -52,24 +50,11 @@ border:2px solid #9d00ff;
 border-radius:18px;
 padding:20px;
 box-shadow:0 0 30px rgba(157,0,255,.35);
-position:relative;
 }
 
-h1{
-font-size:20px;
-margin-bottom:10px;
-}
-
-.highlight{
-color:#FFD700;
-text-shadow:0 0 10px rgba(255,215,0,.6);
-}
-
-.subtitle{
-font-size:14px;
-color:#ccc;
-margin-bottom:16px;
-}
+h1{font-size:20px;margin-bottom:10px}
+.highlight{color:#FFD700;text-shadow:0 0 10px rgba(255,215,0,.6)}
+.subtitle{font-size:14px;color:#ccc;margin-bottom:16px}
 
 .video-box{
 position:relative;
@@ -77,6 +62,7 @@ border-radius:14px;
 overflow:hidden;
 border:1px solid #333;
 margin-bottom:18px;
+cursor:pointer;
 }
 
 .video-box iframe{
@@ -97,107 +83,50 @@ font-size:11px;
 padding:6px 10px;
 border-radius:20px;
 animation:pulseHint 1.5s infinite;
+pointer-events:none;
 }
 
-.progress{
-height:8px;
-background:#222;
-border-radius:10px;
-overflow:hidden;
-margin-bottom:6px;
-}
-
-.progress span{
-display:block;
-height:100%;
-width:100%;
-background:linear-gradient(90deg,#9d00ff,#FFD700);
-animation:load 1.2s ease-out;
-}
-
-.status{
-font-size:11px;
-color:#888;
-text-align:right;
-margin-bottom:14px;
-}
+.progress{height:8px;background:#222;border-radius:10px;overflow:hidden;margin-bottom:6px}
+.progress span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#9d00ff,#FFD700);animation:load 1.2s ease-out}
+.status{font-size:11px;color:#888;text-align:right;margin-bottom:14px}
 
 .cta{
 display:block;
 background:linear-gradient(180deg,#00d657,#009f41);
-color:#fff;
-font-size:17px;
-font-weight:900;
+color:#fff;font-size:17px;font-weight:900;
 text-decoration:none;
-padding:18px;
-border-radius:10px;
+padding:18px;border-radius:10px;
 box-shadow:0 0 20px rgba(0,255,120,.5);
 animation:pulse 1.6s infinite;
 }
 
-.cta span{
-display:block;
-font-size:11px;
-font-weight:400;
-margin-top:4px;
-opacity:.9;
-}
+.cta span{display:block;font-size:11px;font-weight:400;margin-top:4px;opacity:.9}
 
-.security{
-display:flex;
-justify-content:center;
-gap:14px;
-font-size:10px;
-color:#aaa;
-margin-top:14px;
-}
-
-.footer{
-margin-top:22px;
-font-size:10px;
-color:#444;
-}
-
+.security{display:flex;justify-content:center;gap:14px;font-size:10px;color:#aaa;margin-top:14px}
+.footer{margin-top:22px;font-size:10px;color:#444}
 .footer a{color:#666;text-decoration:none}
 
 #notify{
-position:fixed;
-top:20px;
-right:-320px;
+position:fixed;top:20px;right:-320px;
 background:rgba(15,15,15,.95);
 border-left:4px solid #00ff66;
-padding:10px 14px;
-border-radius:8px;
-display:flex;
-gap:8px;
-align-items:center;
+padding:10px 14px;border-radius:8px;
+display:flex;gap:8px;align-items:center;
 box-shadow:0 0 15px rgba(0,0,0,.6);
-transition:.5s;
-z-index:9999;
+transition:.5s;z-index:9999;
 }
 
-#notify strong{color:#00ff66;font-size:12px}
-#notify span{font-size:10px;color:#ccc}
-
 .icon{
-background:#00ff66;
-color:#000;
-width:22px;
-height:22px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-weight:bold;
-font-size:13px;
+background:#00ff66;color:#000;
+width:22px;height:22px;border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-weight:bold;font-size:13px;
 }
 
 @keyframes blink{50%{opacity:.4}}
 @keyframes pulse{50%{transform:scale(1.04)}}
 @keyframes load{from{width:0}}
-@keyframes pulseHint{
-50%{transform:translateX(-50%) scale(1.08)}
-}
+@keyframes pulseHint{50%{transform:translateX(-50%) scale(1.08)}}
 </style>
 </head>
 
@@ -206,7 +135,7 @@ font-size:13px;
 <div id="notify">
 <div class="icon">✓</div>
 <div>
-<strong id="nName">Lucas M.</strong>
+<strong id="nName">Lucas M.</strong><br>
 <span id="nText">liberou o acesso</span>
 </div>
 </div>
@@ -221,24 +150,22 @@ font-size:13px;
 <div class="card">
 
 <h1>O Segredo do <span class="highlight">Mercado de IA</span></h1>
-<p class="subtitle">
-Descubra como influenciadores virtuais estão gerando lucro sem aparecer.
-</p>
+<p class="subtitle">Descubra como influenciadores virtuais estão gerando lucro sem aparecer.</p>
 
-<div class="video-box">
-<iframe 
+<div class="video-box" id="videoBox">
+<iframe id="vimeoPlayer"
 src="https://player.vimeo.com/video/1147296941?autoplay=1&muted=1&playsinline=1"
 allow="autoplay; fullscreen; picture-in-picture"
-allowfullscreen>
-</iframe>
-<div class="tap-audio">🔊 Toque no vídeo para ouvir</div>
+allowfullscreen></iframe>
+<div class="tap-audio" id="audioHint">🔊 Toque no vídeo para ouvir</div>
 </div>
 
 <div class="progress"><span></span></div>
 <div class="status">Verificação concluída ✔</div>
 
-<a class="cta" href="https://cakto.app/6KeTY7f/?affiliate=gKdVw4o2">
-QUERO VER O MÉTODO AGORA
+<a class="cta" href="https://cakto.app/6KeTY7f/?affiliate=gKdVw4o2"
+aria-label="Liberar acesso ao método agora">
+LIBERAR ACESSO AGORA
 <span>Acesso imediato</span>
 </a>
 
@@ -250,35 +177,44 @@ QUERO VER O MÉTODO AGORA
 </div>
 
 <div class="footer">
-<p>Este site não possui vínculo com Facebook ou Instagram.</p>
+<p>Este site não é afiliado ao Facebook™, Instagram™ ou Meta™.</p>
 <a href="#">Privacidade</a> • <a href="#">Termos</a>
 </div>
 
 </div>
 
 <script>
+// NOTIFICAÇÕES
 const names=["Pedro S.","Lucas M.","Rafael K.","Bruno L.","Carlos E.","André S."];
 const actions=["liberou o acesso","está assistindo","acabou de entrar"];
 
 function notify(){
 const box=document.getElementById("notify");
-document.getElementById("nName").innerText=
-names[Math.floor(Math.random()*names.length)];
-document.getElementById("nText").innerText=
-actions[Math.floor(Math.random()*actions.length)];
+document.getElementById("nName").innerText=names[Math.floor(Math.random()*names.length)];
+document.getElementById("nText").innerText=actions[Math.floor(Math.random()*actions.length)];
 box.style.right="20px";
 setTimeout(()=>box.style.right="-320px",4000);
 }
-
 setTimeout(notify,2000);
 setInterval(notify,9000);
 
+// CONTADOR
 setInterval(()=>{
 let v=document.getElementById("viewers");
 let n=parseInt(v.innerText)+(Math.floor(Math.random()*3)-1);
-if(n<95)n=98;
+if(n<98)n=98;
 v.innerText=n;
 },3000);
+
+// DESBLOQUEIO DE ÁUDIO
+const box=document.getElementById("videoBox");
+const iframe=document.getElementById("vimeoPlayer");
+const hint=document.getElementById("audioHint");
+
+box.addEventListener("click",()=>{
+iframe.src = iframe.src.replace("muted=1","muted=0");
+hint.style.display="none";
+});
 </script>
 
 </body>
