@@ -62,7 +62,6 @@ border-radius:14px;
 overflow:hidden;
 border:1px solid #333;
 margin-bottom:18px;
-cursor:pointer;
 }
 
 .video-box iframe{
@@ -152,9 +151,9 @@ font-weight:bold;font-size:13px;
 <h1>O Segredo do <span class="highlight">Mercado de IA</span></h1>
 <p class="subtitle">Descubra como influenciadores virtuais estão gerando lucro sem aparecer.</p>
 
-<div class="video-box" id="videoBox">
+<div class="video-box">
 <iframe id="vimeoPlayer"
-src="https://player.vimeo.com/video/1147296941?autoplay=1&muted=1&playsinline=1"
+src="https://player.vimeo.com/video/1147296941?autoplay=1&muted=1&background=1&controls=0&title=0&byline=0&portrait=0&playsinline=1"
 allow="autoplay; fullscreen; picture-in-picture"
 allowfullscreen></iframe>
 <div class="tap-audio" id="audioHint">🔊 Toque no vídeo para ouvir</div>
@@ -163,7 +162,8 @@ allowfullscreen></iframe>
 <div class="progress"><span></span></div>
 <div class="status">Verificação concluída ✔</div>
 
-<a class="cta" href="https://cakto.app/6KeTY7f/?affiliate=gKdVw4o2"
+<a class="cta" id="ctaBtn"
+href="https://cakto.app/6KeTY7f/?affiliate=gKdVw4o2"
 aria-label="Liberar acesso ao método agora">
 LIBERAR ACESSO AGORA
 <span>Acesso imediato</span>
@@ -206,14 +206,29 @@ if(n<98)n=98;
 v.innerText=n;
 },3000);
 
-// DESBLOQUEIO DE ÁUDIO
-const box=document.getElementById("videoBox");
+// DESBLOQUEIO DE ÁUDIO + REMOÇÃO DA MENSAGEM
 const iframe=document.getElementById("vimeoPlayer");
 const hint=document.getElementById("audioHint");
+let audioUnlocked=false;
 
-box.addEventListener("click",()=>{
-iframe.src = iframe.src.replace("muted=1","muted=0");
+function unlockAudio(){
+if(audioUnlocked) return;
+iframe.src=iframe.src.replace("muted=1","muted=0");
 hint.style.display="none";
+audioUnlocked=true;
+document.removeEventListener("click",unlockAudio);
+document.removeEventListener("touchstart",unlockAudio);
+}
+
+document.addEventListener("click",unlockAudio);
+document.addEventListener("touchstart",unlockAudio);
+
+// CTA FEEDBACK
+const cta=document.getElementById("ctaBtn");
+cta.addEventListener("click",()=>{
+cta.innerHTML="🔄 Redirecionando...";
+cta.style.pointerEvents="none";
+cta.style.opacity="0.6";
 });
 </script>
 
