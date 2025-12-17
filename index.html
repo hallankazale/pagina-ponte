@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acesso ao Conteúdo</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+
+body{
+background:#000;
+background-image:radial-gradient(circle at top,#2a003b 0%,#000 60%);
+color:#fff;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:15px;
+}
+
+.container{
+width:100%;
+max-width:420px;
+text-align:center;
+}
+
+/* contador topo */
+.live{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 16px;
+border:1px solid #ff004c;
+border-radius:50px;
+background:rgba(255,0,76,.15);
+font-size:12px;
+font-weight:bold;
+margin-bottom:20px;
+box-shadow:0 0 12px rgba(255,0,76,.4)
+}
+
+.dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:#ff004c;
+animation:blink 1.2s infinite
+}
+
+@keyframes blink{
+0%{opacity:.2}
+50%{opacity:1}
+100%{opacity:.2}
+}
+
+/* card */
+.card{
+background:linear-gradient(145deg,#111,#0a0a0a);
+border:2px solid #9d00ff;
+border-radius:20px;
+padding:25px 20px;
+box-shadow:0 0 35px rgba(157,0,255,.35);
+position:relative;
+overflow:hidden;
+}
+
+.card::before{
+content:"";
+position:absolute;
+top:0;left:0;right:0;
+height:2px;
+background:linear-gradient(90deg,transparent,#ffd700,transparent);
+box-shadow:0 0 15px #ffd700;
+}
+
+h1{
+font-size:22px;
+margin-bottom:14px;
+text-transform:uppercase;
+line-height:1.3
+}
+
+.highlight{
+color:#ffd700;
+text-shadow:0 0 10px rgba(255,215,0,.6)
+}
+
+.sub{
+font-size:14px;
+color:#ccc;
+margin-bottom:18px
+}
+
+/* video */
+.image-box{
+width:100%;
+height:260px;
+border-radius:14px;
+overflow:hidden;
+border:1px solid #333;
+margin-bottom:18px;
+position:relative;
+background:#000
+}
+
+.image-box iframe{
+width:100%;
+height:100%;
+border:0
+}
+
+.tag{
+position:absolute;
+bottom:10px;
+right:10px;
+font-size:10px;
+padding:4px 8px;
+border-radius:4px;
+border:1px solid #00ff66;
+color:#00ff66;
+background:#000
+}
+
+/* barra */
+.progress{
+width:100%;
+height:10px;
+background:#222;
+border-radius:10px;
+overflow:hidden;
+margin-bottom:6px
+}
+
+.bar{
+height:100%;
+width:100%;
+background:linear-gradient(90deg,#9d00ff,#ffd700);
+animation:load 1.5s ease-out
+}
+
+@keyframes load{
+from{width:0}
+to{width:100%}
+}
+
+.status{
+font-size:11px;
+color:#888;
+text-align:right;
+margin-bottom:18px
+}
+
+/* botão */
+.cta{
+display:flex;
+justify-content:center;
+align-items:center;
+width:100%;
+padding:18px;
+background:linear-gradient(180deg,#00d657,#00a844);
+border-radius:8px;
+text-decoration:none;
+color:#fff;
+font-size:17px;
+font-weight:900;
+text-transform:uppercase;
+border-bottom:4px solid #007a31;
+box-shadow:0 0 22px rgba(0,255,100,.45);
+animation:pulse 1.8s infinite
+}
+
+.cta span{
+display:block;
+font-size:10px;
+font-weight:normal;
+margin-top:4px;
+opacity:.9
+}
+
+@keyframes pulse{
+0%{transform:scale(1);box-shadow:0 0 0 0 rgba(0,255,100,.7)}
+50%{transform:scale(1.03);box-shadow:0 0 0 16px rgba(0,255,100,0)}
+100%{transform:scale(1);box-shadow:0 0 0 0 rgba(0,255,100,0)}
+}
+
+/* prova social */
+.social{
+margin-top:18px;
+font-size:13px;
+opacity:.85;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:8px
+}
+
+.social .dot{
+background:#00e676;
+box-shadow:0 0 10px rgba(0,230,118,.9)
+}
+
+/* segurança */
+.security{
+margin-top:15px;
+display:flex;
+justify-content:center;
+gap:15px;
+font-size:10px;
+opacity:.6
+}
+
+.footer{
+margin-top:25px;
+font-size:10px;
+color:#444
+}
+.footer a{
+color:#666;
+text-decoration:none
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="live">
+<span class="dot"></span>
+<span id="viewers">112</span> usuários ativos agora
+</div>
+
+<div class="card">
+
+<h1>Como a <span class="highlight">Inteligência Artificial</span> está sendo aplicada</h1>
+
+<p class="sub">
+Conteúdo informativo mostrando um processo técnico usado por criadores digitais.
+</p>
+
+<div class="image-box">
+<iframe 
+src="https://player.vimeo.com/video/1147296941?autoplay=1&muted=1&loop=1&autopause=0&background=1"
+allow="autoplay; fullscreen; picture-in-picture"
+allowfullscreen>
+</iframe>
+<div class="tag">Conteúdo em vídeo</div>
+</div>
+
+<div class="progress">
+<div class="bar"></div>
+</div>
+<p class="status">Verificação de acesso: <span style="color:#00ff66">ok</span></p>
+
+<a class="cta" href="https://cakto.app/6KeTY7f/?affiliate=gKdVw4o2">
+Continuar para o conteúdo
+<span>Entender como funciona o processo</span>
+</a>
+
+<div class="social">
+<span class="dot"></span>
+<span id="people">24</span> pessoas acessando este conteúdo agora
+</div>
+
+<div class="security">
+<span>🔒 Conteúdo informativo</span>
+<span>⚡ Acesso imediato</span>
+</div>
+
+</div>
+
+<div class="footer">
+<p>Este site não possui vínculo com plataformas de terceiros.</p>
+<a href="#">Privacidade</a> • <a href="#">Termos</a>
+</div>
+
+</div>
+
+<script>
+/* contador topo */
+setInterval(()=>{
+let v=document.getElementById("viewers");
+let n=parseInt(v.innerText);
+n+=Math.floor(Math.random()*3)-1;
+if(n<95)n=95;
+v.innerText=n;
+},3000);
+
+/* prova social */
+let p=Math.floor(Math.random()*10)+20;
+const el=document.getElementById("people");
+setInterval(()=>{
+let c=Math.floor(Math.random()*3)-1;
+p=Math.max(14,p+c);
+el.innerText=p;
+},4000);
+</script>
+
+</body>
+</html>
